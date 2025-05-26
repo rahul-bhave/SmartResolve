@@ -1,0 +1,30 @@
+You can view and download your current and previous bills by logging into your account dashboard and navigating to the Billing section.
+
+Late payment fees are applied automatically if payment is not received within 5 days after the due date.
+
+To change your subscription plan, go to your account settings and select "Manage Plan". You can upgrade or downgrade anytime.
+
+We updated our pricing plans in April 2024 to reflect improvements in our infrastructure and support services.
+
+Refunds are only issued for cancellations within 14 days of the billing cycle start. After that, charges are non-refundable.
+
+If you forgot your password, click "Forgot Password?" on the login page to receive a reset link by email.
+
+Live chat is available 9AM to 9PM Monday through Saturday. You can also contact support via email at support@example.com.
+
+To update your payment method, navigate to Billing → Payment Methods and click "Edit" next to your current card.
+
+Our platform supports Visa, MasterCard, American Express, and PayPal as payment options.
+
+Account verification is required before making any changes to sensitive information like email or billing address.
+
+Service outages are posted in real time on our Status Page at status.example.com. Subscribe for live updates.
+
+If you received a charge you don't recognize, please contact our billing team immediately with the invoice ID.
+
+You can enable two-factor authentication (2FA) by going to Security Settings and linking an authentication app.
+
+Your usage data is updated every 4 hours and can be downloaded as a CSV from the Analytics tab in your dashboard.
+
+Chatbot responses are powered by AI and are constantly learning from our curated help center articles and support data.
+
