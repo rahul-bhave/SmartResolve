@@ -5,6 +5,9 @@ import chromadb
 from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction
 from ibm_watsonx_ai.foundation_models import ModelInference
 
+from dotenv import load_dotenv
+load_dotenv()
+
 # Config
 CHROMA_COLLECTION_NAME = "support_kb"
 EMBED_MODEL_NAME = "all-MiniLM-L6-v2"
@@ -22,15 +25,30 @@ def init_chroma():
     except:
         return chroma_client.create_collection(name=CHROMA_COLLECTION_NAME, embedding_function=embedding_fn)
 
+import os
+import streamlit as st
+from ibm_watsonx_ai.foundation_models import ModelInference
+from dotenv import load_dotenv
+
+load_dotenv()  # Load env vars from .env file (if using one)
+
 @st.cache_resource
 def get_watson_model():
-    return ModelInference(
-        model_id="granite-13b-chat",
-        project_id=os.getenv("WATSONX_PROJECT_ID"),
-        credentials={"apikey": os.getenv("WATSONX_API_KEY")},
-        url="https://us-south.ml.cloud.ibm.com"
-    )
+    api_key = os.getenv("WATSONX_API_KEY")
+    project_id = os.getenv("WATSONX_PROJECT_ID")
+    url = os.getenv("WATSONX_URL")
 
+    if not api_key or not project_id or not url:
+        raise ValueError("Missing WATSONX_API_KEY, WATSONX_PROJECT_ID, or WATSONX_URL.")
+
+    return ModelInference(
+        model_id="ibm/granite-3-3-8b-instruct",
+        project_id=project_id,
+        credentials={
+            "apikey": api_key,
+            "url": url
+        }
+    )
 st.set_page_config(page_title="SmartResolve (Chroma)", layout="centered")
 st.title("🤖 SmartResolve - AI Support Assistant (Chroma + Watsonx)")
 
@@ -56,10 +74,9 @@ if query:
 
         watson = get_watson_model()
         prompt = f"Context:\n{context}\n\nUser question: {query}\nAnswer:"
-        response = watson.generate_text(prompt=prompt, temperature=0.5, max_tokens=300)
-
+        response = watson.generate_text(prompt=prompt)
         st.markdown("### 🤖 SmartResolve says:")
-        st.success(response['generated_text'])
+        st.success(response)
 
         with st.expander("🔍 Retrieved Docs"):
             for doc in retrieved_docs:
