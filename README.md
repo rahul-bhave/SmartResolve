@@ -6,7 +6,7 @@ SmartResolve is a proof-of-concept AI solution built for the IBM watsonx.ai RAG 
 
 ## ✅ Deliverable 1: Video Demonstration
 
-🎥 Watch the 3-minute demo here: [Demo](https://youtu.be/TS0Qy36nLio))
+🎥 Watch the demo here: [Demo](https://youtu.be/TS0Qy36nLio))
 
 - Shows document upload
 - Demonstrates live question-answering using retrieved KB
